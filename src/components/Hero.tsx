@@ -1,49 +1,49 @@
 import './Hero.css'
-import profileImage from '../assests/vam.jpg'
 import { FaEnvelope, FaLinkedin } from 'react-icons/fa'
+import type { HeroData } from '../data/portfolioData'
 
-export default function Hero() {
-    return (
-        <section className="hero">
-            <div className="hero-content">
-                <div className="hero-profile-container">
-                    <img
-                        src={profileImage}
-                        alt="Profile"
-                        className="hero-profile-image"
-                    />
-                </div>
+interface HeroProps {
+  data: HeroData
+}
 
-                <h1 className="hero-title">
-                    Víctor Almena Martínez
-                </h1>
-                
-                <h2 className="hero-subtitle">
-                    Backend Developer / Software Engineer
-                </h2>
+export default function Hero({ data }: HeroProps) {
+  return (
+    <section className="hero">
+      <div className="hero-content">
+        <div className="hero-profile-container">
+          <img
+            src={data.profileImageSrc}
+            alt={`Foto de ${data.name}, ${data.role}`}
+            className="hero-profile-image"
+          />
+        </div>
 
-                <p className="hero-description">
-                    Desarrollador Backend utilizando herramientas como Java, Spring Boot, Python, FastAPI, Django, Docker, entre otras.
-                </p>
+        <h1 className="hero-title">{data.name}</h1>
 
-                <div className="hero-links">
-                    <a 
-                        href="mailto:almenamvictor@gmail.com" 
-                        className="hero-link"
-                    >
-                        <FaEnvelope /> Contáctame
-                    </a>
-                    
-                    <a 
-                        href="https://linkedin.com/in/victoralmenamartinez" 
-                        target="_blank" 
-                        rel="noopener noreferrer"
-                        className="hero-link"
-                    >
-                        <FaLinkedin /> LinkedIn
-                    </a>
-                </div>
-            </div>
-        </section>
-    )
+        <h2 className="hero-subtitle">{data.role}</h2>
+
+        <p className="hero-description">{data.summary}</p>
+
+        <div className="hero-links">
+          <a
+            href={data.primaryCtaHref}
+            className="hero-link"
+            aria-label={`Enviar correo a ${data.name}`}
+          >
+            <FaEnvelope /> {data.primaryCtaLabel}
+          </a>
+
+          <a
+            href={data.secondaryCtaHref}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="hero-link"
+            aria-label={`Ver perfil de LinkedIn de ${data.name}`}
+          >
+            <FaLinkedin /> {data.secondaryCtaLabel}
+          </a>
+        </div>
+      </div>
+    </section>
+  )
 }
