@@ -1,0 +1,145 @@
+.experience-section {
+  background-color: transparent;
+  padding: 100px 20px;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.experience-title {
+  border-bottom: none;
+  padding-bottom: 0;
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 60px;
+  color: var(--text-primary);
+  font-size: clamp(2rem, 4vw, 2.5rem);
+  font-weight: 700;
+  letter-spacing: -0.01em;
+  position: relative;
+}
+
+.experience-icon {
+  font-size: 1.2em;
+  color: var(--text-primary);
+}
+
+.experience-list {
+  margin-top: 40px;
+  display: flex;
+  flex-direction: column;
+  gap: 40px;
+  position: relative;
+}
+
+.experience-item {
+  border-left: 5px solid rgba(255, 255, 255, 0.3);
+  padding: 35px;
+  margin-left: 20px;
+  background-color: transparent;
+  border-radius: 0;
+  box-shadow: none;
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  position: relative;
+  overflow: visible;
+  opacity: 0;
+  transform: translateX(-20px);
+  animation: slideInLeft 0.6s ease-out forwards;
+  border: none;
+}
+
+.experience-item:nth-child(1) {
+  animation-delay: 0.1s;
+}
+
+.experience-item:nth-child(2) {
+  animation-delay: 0.2s;
+}
+
+.experience-item:nth-child(3) {
+  animation-delay: 0.3s;
+}
+
+.experience-item::after {
+  content: '';
+  position: absolute;
+  left: -5px;
+  top: 0;
+  width: 5px;
+  height: 100%;
+  background: rgba(255, 255, 255, 0.3);
+  transition: width 0.3s ease;
+}
+
+.experience-item:hover {
+  transform: translateX(0);
+  box-shadow: none;
+  border-left-color: rgba(255, 255, 255, 0.3);
+}
+
+.experience-role {
+  margin: 0 0 12px 0;
+  color: var(--text-primary);
+  font-size: 1.6rem;
+  font-weight: 700;
+  letter-spacing: -0.01em;
+}
+
+.experience-header {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 20px;
+  flex-wrap: wrap;
+}
+
+.experience-company {
+  color: #FFFFFF;
+  font-size: 1.1rem;
+  font-weight: 600;
+}
+
+.experience-separator {
+  color: #8FA3C4;
+  font-size: 0.9rem;
+}
+
+.experience-date {
+  color: #8FA3C4;
+  font-size: 0.95rem;
+}
+
+.experience-description {
+  margin-top: 15px;
+  color: #B8C5E0;
+  line-height: 1.8;
+  font-size: 1.05rem;
+}
+
+@keyframes slideInLeft {
+  from {
+    opacity: 0;
+    transform: translateX(-20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .experience-section {
+    padding: 60px 20px;
+  }
+  
+  .experience-item {
+    margin-left: 10px;
+    padding: 25px;
+  }
+  
+  .experience-role {
+    font-size: 1.3rem;
+  }
+}
+

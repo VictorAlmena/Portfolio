@@ -1,0 +1,44 @@
+.app {
+  width: 100%;
+  margin: 0;
+  padding: 0;
+  text-align: left;
+  overflow-x: hidden;
+  background: linear-gradient(135deg, #0A0E27 0%, #1A2B5C 25%, #0F1B3D 50%, #1A2B5C 75%, #0A0E27 100%);
+  background-attachment: fixed;
+  min-height: 100vh;
+}
+
+/* Estilos globales para mejor tipografía */
+p {
+  color: var(--text-secondary);
+  font-size: 1.1rem;
+  line-height: 1.8;
+  margin: 0;
+}
+
+/* Transiciones suaves para todos los elementos interactivos */
+button, a, .card {
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* Efecto de hover mejorado */
+button:hover, a:hover {
+  transform: translateY(-2px);
+}
+
+button:active, a:active {
+  transform: translateY(0);
+}
+
+/* Scroll reveal animation */
+@keyframes reveal {
+  from {
+    opacity: 0;
+    transform: translateY(50px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
