@@ -1,5 +1,23 @@
-/* Mismo aspecto que ES/EN: solo ajuste del icono dentro del botón */
+/* Misma altura que los botones ES/EN: icono alineado al line-height del texto */
 .theme-toggle-icon {
-  font-size: 0.95rem;
-  display: block;
+  width: 14px;
+  height: 14px;
+  min-width: 14px;
+  min-height: 14px;
+  font-size: 14px;
+  display: inline-block;
+  flex-shrink: 0;
+  vertical-align: middle;
+}
+
+.theme-toggle-icon-svg {
+  color: inherit;
+}
+
+.language-switcher .language-switcher-button:has(.theme-toggle-icon) {
+  padding: 6px 10px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  line-height: 1;
 }
