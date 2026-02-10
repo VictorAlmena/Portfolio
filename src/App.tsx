@@ -1,3 +1,4 @@
+import { useState } from 'react'
 import './App.css'
 import Hero from './components/Hero'
 import Experience from './components/Experience'
@@ -5,29 +6,52 @@ import Projects from './components/Projects'
 import Education from './components/Education'
 import Footer from './components/Footer'
 import {
-  educationItems,
-  experienceItems,
+  educationItemsByLocale,
+  experienceItemsByLocale,
   heroData,
-  projects
+  projectsByLocale,
+  sectionLabelsByLocale,
+  type Locale
 } from './data/portfolioData'
 
 function App() {
+  const [locale, setLocale] = useState<Locale>('es')
+
+  const labels = sectionLabelsByLocale[locale]
+
   return (
     <div className="app">
+      <div className="language-switcher">
+        <button
+          type="button"
+          className={`language-switcher-button ${locale === 'es' ? 'active' : ''}`}
+          onClick={() => setLocale('es')}
+        >
+          ES
+        </button>
+        <button
+          type="button"
+          className={`language-switcher-button ${locale === 'en' ? 'active' : ''}`}
+          onClick={() => setLocale('en')}
+        >
+          EN
+        </button>
+      </div>
+
       {/* 1. Header / Hero */}
-      <Hero data={heroData} />
+      <Hero data={heroData[locale]} />
 
       {/* 2. Work Experience */}
-      <Experience items={experienceItems} />
+      <Experience title={labels.experienceTitle} items={experienceItemsByLocale[locale]} />
 
       {/* 3. Projects */}
-      <Projects projects={projects} />
+      <Projects title={labels.projectsTitle} projects={projectsByLocale[locale]} />
 
       {/* 4. Education */}
-      <Education items={educationItems} />
+      <Education title={labels.educationTitle} items={educationItemsByLocale[locale]} />
 
       {/* 5. Footer */}
-      <Footer />
+      <Footer title={labels.contactTitle} />
     </div>
   )
 }

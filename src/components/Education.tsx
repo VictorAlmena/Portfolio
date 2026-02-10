@@ -4,16 +4,17 @@ import { FaGraduationCap } from 'react-icons/fa'
 import type { EducationItem } from '../data/portfolioData'
 
 interface EducationProps {
+  title: string
   items: EducationItem[]
 }
 
-export default function Education({ items }: EducationProps) {
+export default function Education({ title, items }: EducationProps) {
   const sectionRef = useScrollReveal()
 
   return (
     <section ref={sectionRef} className="education-section scroll-reveal">
       <h2 className="education-title">
-        <FaGraduationCap className="education-icon" /> Formación
+        <FaGraduationCap className="education-icon" /> {title}
       </h2>
       <div className="education-grid">
         {items.map((item) => (

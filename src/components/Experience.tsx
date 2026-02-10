@@ -4,16 +4,17 @@ import { FaBriefcase } from 'react-icons/fa'
 import type { ExperienceItem } from '../data/portfolioData'
 
 interface ExperienceProps {
+  title: string
   items: ExperienceItem[]
 }
 
-export default function Experience({ items }: ExperienceProps) {
+export default function Experience({ title, items }: ExperienceProps) {
   const sectionRef = useScrollReveal()
 
   return (
     <section ref={sectionRef} className="experience-section scroll-reveal">
       <h2 className="experience-title">
-        <FaBriefcase className="experience-icon" /> Experiencia Laboral
+        <FaBriefcase className="experience-icon" /> {title}
       </h2>
       <div className="experience-list">
         {items.map((exp) => (

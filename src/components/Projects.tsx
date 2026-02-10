@@ -4,15 +4,16 @@ import { useScrollReveal } from '../hooks/useScrollReveal'
 import type { Project } from '../data/portfolioData'
 
 interface ProjectsProps {
+  title: string
   projects: Project[]
 }
 
-export default function Projects({ projects }: ProjectsProps) {
+export default function Projects({ title, projects }: ProjectsProps) {
   const projectsSectionRef = useScrollReveal()
 
   return (
     <section ref={projectsSectionRef} className="projects-section scroll-reveal">
-      <h2 className="projects-title">Proyectos Destacados</h2>
+      <h2 className="projects-title">{title}</h2>
       <div className="projects-grid">
         {projects.map((project) => (
           <ProjectCard
@@ -26,4 +27,5 @@ export default function Projects({ projects }: ProjectsProps) {
     </section>
   )
 }
+
 
