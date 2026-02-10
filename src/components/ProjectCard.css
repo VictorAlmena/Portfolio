@@ -28,8 +28,8 @@
 
 .project-card:hover {
   box-shadow: var(--shadow-lg);
-  border-color: rgba(255, 255, 255, 0.2);
-  background-color: rgba(255, 255, 255, 0.05);
+  border-color: var(--border-color);
+  background-color: var(--bg-card);
 }
 
 
@@ -79,8 +79,8 @@
 }
 
 .project-card-tech-badge:hover {
-  background-color: rgba(255, 255, 255, 0.1);
-  border-color: rgba(255, 255, 255, 0.2);
+  background-color: var(--bg-secondary);
+  border-color: var(--border-color);
   transform: translateY(-2px);
   box-shadow: var(--shadow-lg);
 }

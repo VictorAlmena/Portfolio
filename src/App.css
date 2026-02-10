@@ -4,41 +4,49 @@
   padding: 0;
   text-align: left;
   overflow-x: hidden;
-  background: linear-gradient(135deg, #0A0E27 0%, #1A2B5C 25%, #0F1B3D 50%, #1A2B5C 75%, #0A0E27 100%);
+  background: var(--bg-gradient);
   background-attachment: fixed;
   min-height: 100vh;
+  transition: background-color 0.3s ease, color 0.3s ease;
 }
 
-.language-switcher {
+.top-bar {
   position: fixed;
   top: 16px;
   right: 24px;
   z-index: 1000;
   display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.language-switcher {
+  display: flex;
   gap: 8px;
   padding: 6px;
   border-radius: 999px;
-  background: rgba(10, 14, 39, 0.85);
-  border: 1px solid rgba(255, 255, 255, 0.08);
+  background: var(--bg-card);
+  border: 1px solid var(--border-color);
   backdrop-filter: blur(12px);
 }
 
 .language-switcher-button {
   border: none;
   background: transparent;
-  color: #e5e7eb;
+  color: var(--text-secondary);
   font-size: 0.85rem;
   font-weight: 500;
   padding: 6px 10px;
   border-radius: 999px;
   cursor: pointer;
   border: 1px solid transparent;
+  transition: background-color 0.3s ease, color 0.3s ease;
 }
 
 .language-switcher-button.active {
-  background: #ffffff;
-  color: #1e293b;
-  border-color: rgba(148, 163, 184, 0.6);
+  background: var(--text-primary);
+  color: var(--bg-primary);
+  border-color: var(--border-color);
 }
 
 /* Estilos globales para mejor tipografía */
@@ -50,16 +58,20 @@ p {
 }
 
 /* Transiciones suaves para todos los elementos interactivos */
-button, a, .card {
+button,
+a,
+.card {
   transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 /* Efecto de hover mejorado */
-button:hover, a:hover {
+button:hover,
+a:hover {
   transform: translateY(-2px);
 }
 
-button:active, a:active {
+button:active,
+a:active {
   transform: translateY(0);
 }
 

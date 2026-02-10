@@ -1,34 +1,68 @@
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap');
 
-:root {
-  font-family: 'Inter', 'Segoe UI', system-ui, -apple-system, sans-serif;
-  line-height: 1.6;
-  font-weight: 400;
-  
-  /* Gradiente azul futurista */
-  --bg-primary: #0A0E27;
-  --bg-secondary: #0F1B3D;
-  --bg-card: rgba(255, 255, 255, 0.05);
-  --text-primary: #FFFFFF;
-  --text-secondary: #E0E8FF;
-  --text-muted: #B8C5E0;
+/* ========== Theme tokens (extensible: add [data-theme='amoled'] etc.) ========== */
+
+/* Modo claro por defecto: más personalidad, profundidad y contraste */
+:root,
+[data-theme='light'] {
+  color-scheme: light;
+  --bg-primary: #f0f4f8;
+  --bg-secondary: #e2e8f0;
+  --bg-gradient: linear-gradient(160deg, #f0f4f8 0%, #dbeafe 18%, #e0e7ff 35%, #f0f4f8 50%, #e2e8f0 70%, #f0f4f8 100%);
+  --bg-card: #ffffff;
+  --text-primary: #0f172a;
+  --text-secondary: #334155;
+  --text-muted: #64748b;
+  --border-color: rgba(15, 23, 42, 0.08);
+  --accent-color: #2563eb;
+  --accent-hover: #1d4ed8;
+  --shadow-sm: 0 1px 2px rgba(15, 23, 42, 0.04), 0 1px 4px rgba(15, 23, 42, 0.06);
+  --shadow-md: 0 4px 12px rgba(15, 23, 42, 0.08), 0 2px 6px rgba(15, 23, 42, 0.04);
+  --shadow-lg: 0 12px 28px rgba(15, 23, 42, 0.12), 0 4px 12px rgba(15, 23, 42, 0.06);
+  --shadow-xl: 0 24px 48px rgba(15, 23, 42, 0.14), 0 8px 20px rgba(15, 23, 42, 0.08);
+  --selection-bg: rgba(37, 99, 235, 0.25);
+  --hero-text-shadow: 0 2px 24px rgba(15, 23, 42, 0.06);
+  --card-border: 1px solid rgba(255, 255, 255, 0.8);
+  --card-shadow-soft: 0 0 0 1px rgba(15, 23, 42, 0.04);
+}
+
+[data-theme='dark'] {
+  color-scheme: dark;
+  --bg-primary: #0f172a;
+  --bg-secondary: #1e293b;
+  --bg-gradient: linear-gradient(135deg, #0f172a 0%, #1e3a5f 25%, #1e293b 50%, #1e3a5f 75%, #0f172a 100%);
+  --bg-card: rgba(255, 255, 255, 0.06);
+  --text-primary: #f8fafc;
+  --text-secondary: #e2e8f0;
+  --text-muted: #94a3b8;
   --border-color: rgba(255, 255, 255, 0.1);
-  --accent-color: #FFD700;
-  --accent-hover: #FFED4E;
+  --accent-color: #3b82f6;
+  --accent-hover: #2563eb;
   --shadow-sm: 0 1px 3px rgba(0, 0, 0, 0.3);
   --shadow-md: 0 4px 6px rgba(0, 0, 0, 0.4);
   --shadow-lg: 0 10px 25px rgba(0, 0, 0, 0.5);
   --shadow-xl: 0 20px 40px rgba(0, 0, 0, 0.6);
-  
-  color-scheme: dark;
+  --selection-bg: rgba(59, 130, 246, 0.3);
+  --hero-text-shadow: 0 2px 20px rgba(0, 0, 0, 0.2);
+  --card-border: 1px solid rgba(255, 255, 255, 0.08);
+  --card-shadow-soft: none;
+}
+
+/* ========== Base ========== */
+
+:root {
+  font-family: 'Inter', 'Segoe UI', system-ui, -apple-system, sans-serif;
+  line-height: 1.6;
+  font-weight: 400;
   color: var(--text-primary);
-  background: linear-gradient(135deg, #0A0E27 0%, #1A2B5C 25%, #0F1B3D 50%, #1A2B5C 75%, #0A0E27 100%);
+  background: var(--bg-gradient);
   background-attachment: fixed;
   font-synthesis: none;
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   scroll-behavior: smooth;
+  transition: background-color 0.3s ease, color 0.3s ease;
 }
 
 * {
@@ -39,9 +73,10 @@ body {
   margin: 0;
   min-width: 320px;
   min-height: 100vh;
-  background: linear-gradient(135deg, #0A0E27 0%, #1A2B5C 25%, #0F1B3D 50%, #1A2B5C 75%, #0A0E27 100%);
+  background: var(--bg-gradient);
   background-attachment: fixed;
   overflow-x: hidden;
+  transition: background-color 0.3s ease, color 0.3s ease;
 }
 
 h1 {
@@ -149,11 +184,11 @@ html {
 
 /* Selección de texto personalizada */
 ::selection {
-  background-color: rgba(255, 215, 0, 0.3);
+  background-color: var(--selection-bg);
   color: var(--text-primary);
 }
 
 ::-moz-selection {
-  background-color: rgba(255, 215, 0, 0.3);
+  background-color: var(--selection-bg);
   color: var(--text-primary);
 }

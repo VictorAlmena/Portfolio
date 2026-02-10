@@ -5,6 +5,7 @@ import Experience from './components/Experience'
 import Projects from './components/Projects'
 import Education from './components/Education'
 import Footer from './components/Footer'
+import ThemeToggle from './components/ThemeToggle'
 import {
   educationItemsByLocale,
   experienceItemsByLocale,
@@ -21,7 +22,9 @@ function App() {
 
   return (
     <div className="app">
-      <div className="language-switcher">
+      <div className="top-bar">
+        <ThemeToggle />
+        <div className="language-switcher">
         <button
           type="button"
           className={`language-switcher-button ${locale === 'es' ? 'active' : ''}`}
@@ -36,6 +39,7 @@ function App() {
         >
           EN
         </button>
+        </div>
       </div>
 
       {/* 1. Header / Hero */}

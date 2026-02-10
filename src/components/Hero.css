@@ -50,7 +50,7 @@
   font-size: clamp(2.5rem, 6vw, 4.5rem);
   margin-bottom: 20px;
   font-weight: 800;
-  text-shadow: 0 2px 20px rgba(0, 0, 0, 0.2);
+  text-shadow: var(--hero-text-shadow);
   animation: fadeInUp 0.8s ease-out 0.2s both;
   letter-spacing: -0.02em;
   line-height: 1.1;

@@ -9,6 +9,13 @@
       name="description"
       content="Portfolio de Víctor Almena Martínez, Backend Developer especializado en Java, Spring Boot, Python, FastAPI, Django y Docker."
     />
+    <script>
+      (function() {
+        var stored = localStorage.getItem('portfolio-theme');
+        var theme = stored === 'light' || stored === 'dark' ? stored : 'light';
+        document.documentElement.setAttribute('data-theme', theme);
+      })();
+    </script>
   </head>
   <body>
     <div id="root"></div>
