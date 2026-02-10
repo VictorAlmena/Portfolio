@@ -7,18 +7,20 @@ export default function ThemeToggle() {
   const isDark = theme === 'dark'
 
   return (
-    <button
-      type="button"
-      className="theme-toggle"
-      onClick={toggleTheme}
-      aria-label={isDark ? 'Cambiar a modo claro' : 'Cambiar a modo oscuro'}
-      title={isDark ? 'Modo claro' : 'Modo oscuro'}
-    >
-      {isDark ? (
-        <FaSun className="theme-toggle-icon" aria-hidden />
-      ) : (
-        <FaMoon className="theme-toggle-icon" aria-hidden />
-      )}
-    </button>
+    <div className="language-switcher">
+      <button
+        type="button"
+        className="language-switcher-button"
+        onClick={toggleTheme}
+        aria-label={isDark ? 'Cambiar a modo claro' : 'Cambiar a modo oscuro'}
+        title={isDark ? 'Modo claro' : 'Modo oscuro'}
+      >
+        {isDark ? (
+          <FaSun className="theme-toggle-icon" aria-hidden />
+        ) : (
+          <FaMoon className="theme-toggle-icon" aria-hidden />
+        )}
+      </button>
+    </div>
   )
 }
